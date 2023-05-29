@@ -13,7 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('cleancode.helloWorld', () => {
+	let command_1 = vscode.commands.registerCommand('cleancode.helloWorld', () => {
 		// The code you place here will be executed every time your command is executed
 		// Display a message box to the user
 		//vscode.window.showInformationMessage('Notification from cleancode!');
@@ -21,7 +21,18 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showWarningMessage("Current date : " + dateTime);
 	});
 
-	context.subscriptions.push(disposable);
+	let command_2 = vscode.commands.registerCommand('cleancode.askQuestion', async () => {
+		// The code you place here will be executed every time your command is executed
+		// Display a message box to the user
+		const answer = await vscode.window.showInformationMessage("How was your day","good","bad");
+		if (answer== "bad")
+			vscode.window.showWarningMessage("Sorry for a bad day");
+		else
+			vscode.window.showWarningMessage("Nice to hear that you have a good day");
+	});
+
+	context.subscriptions.push(command_1);
+	context.subscriptions.push(command_2);
 }
 
 // This method is called when your extension is deactivated

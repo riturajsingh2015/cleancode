@@ -15,7 +15,13 @@
     "commands": [
       {
         "command": "cleancode.helloWorld",
+        "category": "CLEANCODE",
         "title": "Cleancode"
+      },
+      {
+        "command": "cleancode.askQuestion",
+        "category": "CLEANCODE",
+        "title": "Ask a Question"
       }
     ]
   },
